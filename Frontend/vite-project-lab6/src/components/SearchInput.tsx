@@ -15,12 +15,12 @@ const SearchComponents: React.FC<Props> = ({
 	onChange,
 	isChecked,
 }) => {
-	const valueChange = (e: any): void => {
+	const valueChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		const { value } = e.target;
 		onChange(value);
 	};
 
-	const checkedChange = (e: any): void => {
+	const checkedChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		const { checked } = e.target;
 		isChecked(checked);
 	};
@@ -28,6 +28,7 @@ const SearchComponents: React.FC<Props> = ({
 	return (
 		<>
 			<input
+				className={style.input}
 				type="text"
 				placeholder={placeholder}
 				onChange={valueChange}

@@ -1,4 +1,5 @@
 import style from "./list.module.css";
+import data from "./data.json";
 
 type Props = {
 	value: string;
@@ -6,24 +7,6 @@ type Props = {
 };
 
 const List: React.FC<Props> = ({ value, checked }) => {
-	const data: string = `[
-        { "category": "Sporting Goods", "price": "$49.99", "stocked": true, "name": "Football" },
-        { "category": "Sporting Goods", "price": "$9.99", "stocked": true, "name": "Baseball" },
-        { "category": "Sporting Goods", "price": "$29.99", "stocked": false, "name": "Basketball" },
-        { "category": "Sporting Goods", "price": "$19.99", "stocked": true, "name": "Tennis Racket" },
-        { "category": "Electronics", "price": "$99.99", "stocked": true, "name": "iPod Touch" },
-        { "category": "Electronics", "price": "$399.99", "stocked": false, "name": "iPhone 5" },
-        { "category": "Electronics", "price": "$49.99", "stocked": true, "name": "Smart Watch" },
-        { "category": "Electronics", "price": "$249.99", "stocked": false, "name": "Laptop" },
-        { "category": "Home Appliances", "price": "$149.99", "stocked": true, "name": "Blender" },
-        { "category": "Home Appliances", "price": "$499.99", "stocked": false, "name": "Washing Machine" },
-        { "category": "Home Appliances", "price": "$79.99", "stocked": true, "name": "Microwave Oven" },
-        { "category": "Furniture", "price": "$299.99", "stocked": true, "name": "Dining Table" },
-        { "category": "Furniture", "price": "$89.99", "stocked": false, "name": "Office Chair" },
-        { "category": "Furniture", "price": "$499.99", "stocked": true, "name": "Sofa" }
-        ]
-    `;
-
 	interface Product {
 		category: string;
 		price: string;
@@ -31,7 +14,7 @@ const List: React.FC<Props> = ({ value, checked }) => {
 		name: string;
 	}
 
-	const products: Array<Product> = JSON.parse(data);
+	const products: Array<Product> = data;
 	let filtered: Array<Product> = [];
 	if (value !== null) {
 		filtered = products.filter(
@@ -45,29 +28,23 @@ const List: React.FC<Props> = ({ value, checked }) => {
 			.map((elem) => ({ ...elem }));
 	}
 
-	interface ProductsFiltered {
-		[key: string]: Array<any>;
-	}
-
-	const productsFiltered: ProductsFiltered = {};
-
-	filtered.forEach((elem) => {
-		if (productsFiltered[elem.category] == null) {
-			productsFiltered[elem.category] = [];
+	const productsFiltered = filtered.reduce((acc, elem) => {
+		if (!acc[elem.category]) {
+			acc[elem.category] = [];
 		}
-
-		productsFiltered[elem.category].push(
-			<tr>
+		acc[elem.category].push(
+			<tr key={elem.name}>
 				<td className={style.td}>{elem.name}</td>
 				<td>{elem.price}</td>
 			</tr>
 		);
-	});
+		return acc;
+	}, {} as { [key: string]: JSX.Element[] });
 
-	const List: Array<any> = [];
+	const renderedList: Array<JSX.Element> = [];
 
 	for (let key in productsFiltered) {
-		List.push(
+		renderedList.push(
 			<table>
 				<tr className={style.title}>{key}</tr>
 				{productsFiltered[key]}
@@ -84,7 +61,7 @@ const List: React.FC<Props> = ({ value, checked }) => {
 					<td>Price</td>
 				</tr>
 			</table>
-			{List}
+			{renderedList}
 		</>
 	);
 };
