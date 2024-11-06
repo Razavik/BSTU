@@ -13,9 +13,11 @@ function my_dump($array)
 function randomList($length)
 {
     $arr = [];
+
     for ($i = 0; $i < $length; $i++) {
         $arr[] = rand(-99, 99);
     }
+
     return $arr;
 }
 

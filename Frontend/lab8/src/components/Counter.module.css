@@ -1,0 +1,44 @@
+.button {
+	color: rgb(175, 6, 125);
+	width: 100px;
+}
+
+.button:hover {
+	border: 2px solid rgb(175, 6, 125);
+}
+
+.counter {
+	width: 400px;
+	height: 300px;
+	border: 2px solid rgb(175, 6, 125);
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.value {
+	font-size: 36px;
+	background: rgb(80, 80, 80);
+	width: 100px;
+	border-radius: 5px;
+}
+
+.maxValue {
+	color: white;
+	font-size: 36px;
+	background: rgb(175, 6, 125);
+	width: 100px;
+	border-radius: 5px;
+}
+
+.buttons {
+	display: flex;
+	gap: 30px;
+}
+.button:disabled {
+	background-color: rgb(174, 174, 174);
+	color: gray;
+}

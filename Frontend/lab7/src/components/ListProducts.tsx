@@ -1,10 +1,10 @@
 import style from "./list.module.css";
 import data from "./data.json";
 
-type Props = {
+interface Props {
 	value: string;
 	checked: boolean;
-};
+}
 
 const List: React.FC<Props> = ({ value, checked }) => {
 	interface Product {
