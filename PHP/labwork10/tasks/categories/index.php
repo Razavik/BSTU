@@ -33,8 +33,8 @@ $conn->close();
     </ol>
 
     <!-- Ссылки на другие страницы -->
-    <a href="../task3/index.php">Товары</a> |
-    <a href="../task4/index.php">Поставщики</a>
+    <a href="../products/index.php">Товары</a> |
+    <a href="../suppliers/index.php">Поставщики</a>
 
     <h2>Добавить категорию</h2>
     <form action="add_category.php" method="POST">
@@ -44,7 +44,7 @@ $conn->close();
 
     <h2>Удалить категорию</h2>
     <form action="delete_category.php" method="POST">
-        <input type="number" name="id" required>
+        <input type="text" name="name" required>
         <button type="submit">Удалить</button>
     </form>
 

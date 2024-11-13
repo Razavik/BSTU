@@ -36,14 +36,15 @@
 
 <body>
     <div class="title">
-        <h1>Лабораторная работа №10</h1>
+        <h1>Лабораторная работа №11</h1>
         <hr>
     </div>
 
     <div class="menu">
-        <a href="./tasks/categories/index.php" class="c">Задание 2</a>
-        <a href="./tasks/products/index.php" class="c">Задание 3</a>
-        <a href="./tasks/suppliers/index.php" class="c">Задание 4</a>
+        <a href="./tasks/task1/index.php" class="c">Задание 1</a>
+        <a href="./tasks/task2/index.php" class="c">Задание 2</a>
+        <a href="./tasks/task3/index.php" class="c">Задание 3</a>
+        <a href="./tasks/task4/index.php" class="c">Задание 4</a>
     </div>
 </body>
 

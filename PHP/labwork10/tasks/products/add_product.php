@@ -22,7 +22,7 @@ if ($supplier_active) {
     $query->bind_param("ssiid", $name, $description, $category_id, $supplier_id, $price);
     $query->execute();
 
-    header('Location: products.php');
+    header('Location: index.php');
 } else {
     echo "Ошибка: Нельзя добавить товар с заблокированным поставщиком.";
 }

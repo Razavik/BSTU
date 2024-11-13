@@ -33,7 +33,7 @@ $conn->close();
         <?php endforeach; ?>
     </ul>
 
-    <a href="categories.php">Категории</a>
+    <a href="../categories/index.php">Категории</a>
 
     <h2>Добавить поставщика</h2>
     <form action="add_supplier.php" method="POST">
@@ -43,7 +43,7 @@ $conn->close();
 
     <h2>Блокировать поставщика</h2>
     <form action="block_supplier.php" method="POST">
-        <input type="number" name="id" required>
+        <input type="number" name="name" required>
         <button type="submit">Блокировать</button>
     </form>
 </body>

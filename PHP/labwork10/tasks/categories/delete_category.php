@@ -5,10 +5,10 @@ if ($conn->connect_error) {
     die("Ошибка подключения: " . $conn->connect_error);
 }
 
-$id = $_POST['id'];
+$name = $_POST['name'];
 
-$query = $conn->prepare("UPDATE suppliers SET is_active = FALSE WHERE id = ?");
-$query->bind_param("i", $id);
+$query = $conn->prepare("DELETE FROM categories WHERE name = ?");
+$query->bind_param("s", $name);
 $query->execute();
 
 header('Location: index.php');
