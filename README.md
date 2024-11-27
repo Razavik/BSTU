@@ -8,5 +8,6 @@
 ```
 cd путь/к/папке
 npm create vite@latest
+npm install vite
 npm run dev
 ```
