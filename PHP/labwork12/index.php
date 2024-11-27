@@ -12,20 +12,16 @@
         .c {
             border: 1px solid #333;
             text-align: center;
-            /* Рамка */
             display: inline-block;
             margin: 10px 10px;
             width: 250px;
             padding: 10px;
-            /* Поля */
             text-decoration: none;
             color: #000;
             border-radius: 10px;
-            /* Цвет текста */
         }
 
         .c:hover {
-            /* Тень */
             color: #a00;
             background-color: aqua;
             transition: all 0.5s ease;

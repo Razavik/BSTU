@@ -1,0 +1,21 @@
+.nav ul {
+	display: flex;
+	margin: 0 auto;
+	width: max-content;
+	padding: 0;
+	gap: 20px;
+}
+
+.menuItem {
+	list-style: none;
+}
+
+.menuItem:hover {
+	font-weight: 800;
+	text-decoration: underline;
+}
+
+.menuItem a {
+	text-decoration: none;
+	color: black;
+}

@@ -1,0 +1,41 @@
+{
+	"path": "src/assets/movies/",
+	"info": [
+		{
+			"img": "movie1.jpg",
+			"title": "Форсаж 1",
+			"year": 2001,
+			"category": "Фильм"
+		},
+		{
+			"img": "movie1.jpg",
+			"title": "Форсаж 2",
+			"year": 2003,
+			"category": "Фильм"
+		},
+		{
+			"img": "movie1.jpg",
+			"title": "Форсаж 3",
+			"year": 2006,
+			"category": "Фильм"
+		},
+		{
+			"img": "movie1.jpg",
+			"title": "Форсаж 4",
+			"year": 2009,
+			"category": "Фильм"
+		},
+		{
+			"img": "movie1.jpg",
+			"title": "Форсаж 5",
+			"year": 2011,
+			"category": "Фильм"
+		},
+		{
+			"img": "movie1.jpg",
+			"title": "Форсаж 6",
+			"year": 2013,
+			"category": "Фильм"
+		}
+	]
+}

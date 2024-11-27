@@ -11,7 +11,7 @@ abstract class Animal
 
     public function speak()
     {
-        return "Я животное.";
+        return "УУУУУ!";
     }
 }
 
@@ -34,5 +34,5 @@ class Cat extends Animal
 $dog = new Dog("Бобик");
 $cat = new Cat("Мурка");
 
-echo $dog->speak(); // Гав!
-echo $cat->speak(); // Мяу!
+echo $dog->speak();
+echo $cat->speak();

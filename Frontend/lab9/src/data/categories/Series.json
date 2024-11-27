@@ -1,0 +1,41 @@
+{
+	"path": "src/assets/series/",
+	"info": [
+		{
+			"img": "series1.jpg",
+			"title": "Игра престолов",
+			"year": 2011,
+			"category": "Сериал"
+		},
+		{
+			"img": "series2.webp",
+			"title": "Игра в кальмара",
+			"year": 2021,
+			"category": "Сериал"
+		},
+		{
+			"img": "series3.jpg",
+			"title": "Бумажный дом",
+			"year": 2017,
+			"category": "Сериал"
+		},
+		{
+			"img": "series4.webp",
+			"title": "Киберсталкер",
+			"year": 2019,
+			"category": "Сериал"
+		},
+		{
+			"img": "series5.webp",
+			"title": "Во все тяжкие",
+			"year": 2008,
+			"category": "Сериал"
+		},
+		{
+			"img": "series6.webp",
+			"title": "Слово пацана",
+			"year": 2023,
+			"category": "Сериал"
+		}
+	]
+}

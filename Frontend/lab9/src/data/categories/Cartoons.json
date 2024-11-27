@@ -1,0 +1,41 @@
+{
+	"path": "src/assets/cartoons/",
+	"info": [
+		{
+			"img": "cartoon1.jpg",
+			"title": "Кот в сапогах",
+			"year": 2011,
+			"category": "Мультфильм"
+		},
+		{
+			"img": "cartoon2.jpg",
+			"title": "Кот в сапогах 2",
+			"year": 2022,
+			"category": "Мультфильм"
+		},
+		{
+			"img": "cartoon3.webp",
+			"title": "Тачки 1",
+			"year": 2006,
+			"category": "Мультфильм"
+		},
+		{
+			"img": "cartoon4.png",
+			"title": "Тачки 2",
+			"year": 2011,
+			"category": "Мультфильм"
+		},
+		{
+			"img": "cartoon5.jpg",
+			"title": "Тачки 3",
+			"year": 2017,
+			"category": "Мультфильм"
+		},
+		{
+			"img": "cartoon5.jpg",
+			"title": "Тачки 3",
+			"year": 2017,
+			"category": "Мультфильм"
+		}
+	]
+}

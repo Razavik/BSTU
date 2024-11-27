@@ -1,57 +1,51 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Обрабатываем параметры из формы
     $lineColor = isset($_POST['lineColor']) ? $_POST['lineColor'] : '#000000';
     $lineWidth = isset($_POST['lineWidth']) ? (int) $_POST['lineWidth'] : 1;
     $lineStyle = isset($_POST['lineStyle']) ? $_POST['lineStyle'] : 'solid';
 
-    // Генерация изображения на основе введенных параметров
     header('Content-Type: image/png');
-    $image = imagecreatetruecolor(500, 500); // создаем холст 500x400 пикселей
+    $image = imagecreatetruecolor(500, 500);
 
-    // Цвет фона
-    $backgroundColor = imagecolorallocate($image, 255, 255, 255); // белый фон
+    $backgroundColor = imagecolorallocate($image, 255, 255, 255);
     imagefill($image, 0, 0, $backgroundColor);
 
-    // Преобразуем цвет в RGB
     list($r, $g, $b) = sscanf($lineColor, "#%02x%02x%02x");
     $lineColor = imagecolorallocate($image, $r, $g, $b);
 
     $white = imagecolorallocate($image, 255, 255, 255);
 
-    // Устанавливаем толщину линии
     imagesetthickness($image, $lineWidth);
 
-    // Устанавливаем стиль линии (пунктирный или сплошной)
-    if ($lineStyle == 'dashed') {
-        // Чередуем два цвета: один для штриха и один для пробела
-        imagesetstyle($image, [
-            $lineColor,
-            $lineColor,
-            $lineColor,     // цвет штриха (цвет линии)
-            $white,
-            $white,
-            $white   // цвет пробела (белый)
-        ]);
-
-    } elseif ($lineStyle == 'dotted') {
-        // Чередуем два цвета: один для точки и один для пробела
-        imagesetstyle($image, [
-            $lineColor,
-            $white,
-            $white,
-            $white,
-        ]);
+    function createLineStyle($lineColor, $white, $lineWidth, $type)
+    {
+        $pattern = [];
+        if ($type == 'dashed') {
+            for ($i = 0; $i < $lineWidth * 5; $i++) {
+                $pattern[] = $lineColor;
+            }
+            for ($i = 0; $i < $lineWidth * 3; $i++) {
+                $pattern[] = $white;
+            }
+        } elseif ($type == 'dotted') {
+            for ($i = 0; $i < $lineWidth; $i++) {
+                $pattern[] = $lineColor;
+            }
+            for ($i = 0; $i < $lineWidth * 3; $i++) {
+                $pattern[] = $white;
+            }
+        }
+        return $pattern;
     }
 
-    // Рисуем линию от (50, 50) до (450, 350)
-    if ($lineStyle == 'dotted' || $lineStyle == 'dashed') {
+    if ($lineStyle == 'dashed' || $lineStyle == 'dotted') {
+        $style = createLineStyle($lineColor, $white, $lineWidth, $lineStyle);
+        imagesetstyle($image, $style);
         imageline($image, 50, 250, 450, 250, IMG_COLOR_STYLED);
     } else {
         imageline($image, 50, 250, 450, 250, $lineColor);
     }
 
-    // Выводим изображение
     imagepng($image);
     imagedestroy($image);
     exit;
@@ -90,7 +84,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <h1>Рисование линии с параметрами</h1>
 
-    <!-- Форма для ввода параметров линии -->
     <div class="form-container">
         <form method="POST">
             <label for="lineColor">Цвет линии:</label>
@@ -109,8 +102,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <button type="submit">Нарисовать линию</button>
         </form>
     </div>
-
-    <p>После отправки формы будет отрисована линия с выбранными параметрами.</p>
 </body>
 
 </html>
